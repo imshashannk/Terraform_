@@ -12,6 +12,3 @@ variable "instance_type_value" {
 }
 
 
-variable "subnet_id_value"{
-    description = "The subnet ID to launch the instance in"
-}
