@@ -1,10 +1,9 @@
-resource "aws_vpc" "this" {
-  cidr_block = var.vpc_cidr
-  tags = {
-    Name = var.vpc_name
-  }
-}
+resource "aws_vpc" "my_vpc" {
+  cidr_block           = var.vpc_cidr_block
+  enable_dns_support   = true
+  enable_dns_hostnames = true
 
-output "vpc_id" {
-  value = aws_vpc.this.id
+  tags = {
+    Name = "My Custom VPC"
+  }
 }
