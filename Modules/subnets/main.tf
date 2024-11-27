@@ -1,19 +1,15 @@
-resource "aws_subnet" "subnet_az1" {
-  vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = var.subnet_az1_cidr
-  availability_zone = "ap-south-1a"
+resource "aws_subnet" "public" {
+  count = length(var.public_subnets)
+
+  vpc_id            = var.vpc_id
+  cidr_block        = var.public_subnets[count.index]
+  availability_zone = var.azs[count.index]
 
   tags = {
-    Name = "Subnet for AZ1"
+    Name = "Public Subnet ${count.index + 1}"
   }
 }
 
-resource "aws_subnet" "subnet_az2" {
-  vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = var.subnet_az2_cidr
-  availability_zone = "ap-south-1b"
-
-  tags = {
-    Name = "Subnet for AZ2"
-  }
+output "subnet_ids" {
+  value = aws_subnet.public[*].id
 }
