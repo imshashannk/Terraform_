@@ -1,5 +1,5 @@
 provider "aws" {
-  region     = "var.region_value"
+  region     = var.region_value
 }
 
 resource "aws_instance" "this" {
