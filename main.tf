@@ -1,6 +1,6 @@
 module "Vpc" {
   source      = "./Modules/Vpc"
-  vpc_cidr    = var.cidr_block
+  cidr_block  = var.vpc_cidr_block
   vpc_name    = "MyCustomVPC"
 }
 
@@ -14,7 +14,7 @@ module "subnets" {
 module "Ec2" {
   source              = "./Modules/Ec2"
   ami_id              = var.ami
-  instance_type       = var.instance_type_value
+  instance_type       = var.instance_type
   subnet_ids          = module.subnets.subnet_ids
   vpc_id              = module.vpc.vpc_id
   ingress_from_port   = 22
