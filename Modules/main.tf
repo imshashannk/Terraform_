@@ -1,0 +1,45 @@
+module "vpc" {
+  source = "./Terraform2/Modules/vpc"
+
+  name = "my-vpc"
+  cidr = var.vpc_cidr_block_value
+
+  azs             = var.azs_value
+  public_subnets  = var.public_subnets_value
+
+  enable_nat_gateway = true
+  enable_vpn_gateway = true
+
+  tags = {
+    Terraform = "true"
+    Environment = "testing"
+  }
+}
+
+module "ec2" {
+  source = "./Terraform2/Modules/Ec2"
+
+  instance_type = var.instance_type_value
+  ami           = var.ami_value
+  subnet_id     = module.vpc.public_subnets[0]
+
+  tags = {
+    Terraform    = "true"
+    Environment  = "testing"
+    Instance     = "Instance-1"
+  }
+}
+
+module "ec2_instance2" {
+  source = "./Terraform2/Modules/Ec2"
+
+  instance_type = var.instance_type_value
+  ami           = var.ami_value
+  subnet_id     = module.vpc.public_subnets[1]
+
+  tags = {
+    Terraform   = "true"
+    Environment = "testing"
+    Instance    = "Instance-2"
+  }
+}
