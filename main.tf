@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "./Terraform2/Modules/vpc"
+  source = "/home/infivit/nitro/Terraform_/Modules/Vpc"
 
   name = "my-vpc"
   cidr = var.vpc_cidr_block_value
@@ -17,7 +17,7 @@ module "vpc" {
 }
 
 module "ec2" {
-  source = "./Terraform2/Modules/Ec2"
+  source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
 
   instance_type = var.instance_type_value
   ami           = var.ami_value
@@ -31,7 +31,7 @@ module "ec2" {
 }
 
 module "ec2_instance2" {
-  source = "./Terraform2/Modules/Ec2"
+  source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
 
   instance_type = var.instance_type_value
   ami           = var.ami_value
