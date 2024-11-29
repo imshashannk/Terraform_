@@ -20,7 +20,7 @@ variable "subnet_id_value" {
 }
 
 
-variable "public_subnets_value" {
+variable "public_subnets" {
   description = "A list of public subnets inside the custom VPC"
   type        = list(string)
 }
