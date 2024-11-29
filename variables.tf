@@ -35,6 +35,12 @@ variable "region_value" {
   
 }
 
+variable "public_subnets" {
+  description = "The public subnets to launch the instance in"
+  type = list(string)
+  
+}
+
 
 
 

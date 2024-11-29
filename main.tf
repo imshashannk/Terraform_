@@ -1,8 +1,9 @@
 module "vpc" {
-  source              = "/home/infivit/nitro/Terraform_/Modules/Vpc"
-  vpc_cidr            = var.vpc_cidr_block_value
-  availability_zones  = var.azs_value
-  public_subnets      = var.public_subnets_value
+  source = "/home/infivit/nitro/Terraform_/Modules/Vpc"
+
+  vpc_cidr          = var.vpc_cidr_block_value
+  availability_zones = var.azs_value
+  public_subnets     = var.public_subnets_value
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
@@ -18,7 +19,7 @@ module "ec2_instance_1" {
   region_value        = var.region_value
   instance_type_value = var.instance_type_value
   ami_value           = var.ami_value
-  subnet_id_value     = module.vpc.public_subnets[0] # First public subnet
+  subnet_id_value     = module.vpc.public_subnets[0]  # Pass the first public subnet
 }
 
 module "ec2_instance_2" {
@@ -26,5 +27,5 @@ module "ec2_instance_2" {
   region_value        = var.region_value
   instance_type_value = var.instance_type_value
   ami_value           = var.ami_value
-  subnet_id_value     = module.vpc.public_subnets[1] # Second public subnet
+  subnet_id_value     = module.vpc.public_subnets[1]  # Pass the second public subnet
 }

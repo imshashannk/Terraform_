@@ -20,3 +20,8 @@ output "public_subnets" {
   value = [aws_subnet.az1.id, aws_subnet.az2.id]
   description = "List of public subnet IDs"
 }
+
+output "public_subnets" {
+  value       = aws_subnet.*.id
+  description = "The list of public subnet IDs"
+}

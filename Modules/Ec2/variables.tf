@@ -1,25 +1,19 @@
 variable "region_value" {
-    description = "The region to launch the instance in"
-    type        = string
+  type        = string
+  description = "Region to deploy the EC2 instance"
 }
 
 variable "ami_value" {
-    description = "The AMI ID to use for the instance" 
-    type        = string
+  type        = string
+  description = "AMI ID for the EC2 instance"
 }
-
 
 variable "instance_type_value" {
-    description = "The instance type to use for the instance"
-    type        = string
-}
-
-variable "public_subnets_value" {
-  description = "A list of public subnets inside the custom VPC"
-  type        = list(string)
+  type        = string
+  description = "Instance type for the EC2 instance"
 }
 
 variable "subnet_id_value" {
   type        = string
-  description = "The ID of the subnet where the EC2 instance will be deployed"
+  description = "Subnet ID where the EC2 instance will be deployed"
 }
