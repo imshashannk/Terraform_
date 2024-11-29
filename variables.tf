@@ -33,14 +33,9 @@ variable "ami_value" {
   
 }
 
-variable "ec2_region1_value" {
+variable "region_value" {
   description = "The region to launch the instance in"
   type = string
   
 }
 
-variable "ec2_region2_value" {
-  description = "The region to launch the instance in"
-  type = string
-  
-}

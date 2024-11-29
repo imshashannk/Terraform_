@@ -14,7 +14,7 @@ module "vpc" {
 
 module "ec2" {
   source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
-  region = var.ec2_region1_value
+  region = var.region_value
 
   instance_type = var.instance_type_value
   ami           = var.ami_value
@@ -24,7 +24,7 @@ module "ec2" {
 
 module "ec2_instance2" {
   source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
-  region = var.ec2_region2_value
+  region = var.region_value
 
   instance_type = var.instance_type_value
   ami           = var.ami_value
