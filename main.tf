@@ -20,7 +20,7 @@ module "ec2" {
   region_value        = var.region_value
   instance_type_value = var.instance_type_value
   ami_value           = var.ami_value
-  subnet_id_value     = module.vpc.public_subnets_value[0]  # Using the first public subnet from VPC module
+  subnet_id_value     = var.public_subnets_value[0]  # Using the first public subnet from VPC module
 }
 
 module "ec2_instance2" {
@@ -29,6 +29,6 @@ module "ec2_instance2" {
   region_value        = var.region_value
   instance_type_value = var.instance_type_value
   ami_value           = var.ami_value
-  subnet_id_value     = module.vpc.public_subnets_value[1]  # Using the second public subnet from VPC module
+  subnet_id_value     = var.public_subnets_value[1]  # Using the second public subnet from VPC module
 }
 
