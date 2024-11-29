@@ -14,18 +14,11 @@ module "vpc" {
   }
 }
 
-module "ec2_instance_1" {
-  source              = "/home/infivit/nitro/Terraform_/Modules/Ec2"
-  region_value        = var.region_value
-  instance_type_value = var.instance_type_value
-  ami_value           = var.ami_value
-  subnet_id_value     = module.vpc.public_subnets[0]  # Pass the first public subnet
+module "ec2_instance_2" {
+  source               = "/home/infivit/nitro/Terraform_/Modules/Ec2"
+  region_value         = var.region_value
+  instance_type_value  = var.instance_type_value
+  ami_value            = var.ami_value
+  public_subnets_value = module.vpc.public_subnets  # Ensure this is correctly passed
 }
 
-module "ec2_instance_2" {
-  source              = "/home/infivit/nitro/Terraform_/Modules/Ec2"
-  region_value        = var.region_value
-  instance_type_value = var.instance_type_value
-  ami_value           = var.ami_value
-  subnet_id_value     = module.vpc.public_subnets[1]  # Pass the second public subnet
-}
