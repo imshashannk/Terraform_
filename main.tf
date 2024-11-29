@@ -4,7 +4,6 @@ module "vpc" {
   vpc_cidr          = var.vpc_cidr_block_value
   availability_zones = var.azs_value
   public_subnets     = var.public_subnets_value
-  private_subnets    = var.private_subnets_value
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
