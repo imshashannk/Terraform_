@@ -24,11 +24,6 @@ module "ec2" {
   ami           = var.ami_value
   subnet_id     = module.vpc.public_subnets[0]
 
-  tags = {
-    Terraform    = "true"
-    Environment  = "testing"
-    Instance     = "Instance-1"
-  }
 }
 
 module "ec2_instance2" {
@@ -38,6 +33,5 @@ module "ec2_instance2" {
   instance_type = var.instance_type_value
   ami           = var.ami_value
   subnet_id     = module.vpc.public_subnets[1]
-
 
 }
