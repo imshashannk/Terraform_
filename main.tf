@@ -7,13 +7,9 @@ module "vpc" {
   azs             = var.azs_value
   public_subnets  = var.public_subnets_value
 
-  enable_nat_gateway = true
-  enable_vpn_gateway = true
+  enable_nat_gateway = false
+  enable_vpn_gateway = false
 
-  tags = {
-    Terraform = "true"
-    Environment = "testing"
-  }
 }
 
 module "ec2" {
