@@ -1,33 +1,32 @@
 module "vpc" {
   source = "/home/infivit/nitro/Terraform_/Modules/Vpc"
 
-  name = "my-vpc"
-  cidr = var.vpc_cidr_block_value
+  vpc_cidr          = var.vpc_cidr_block_value
+  availability_zones = var.azs_value
+  public_subnets     = var.public_subnets_value
+  private_subnets    = var.private_subnets_value
 
-  azs             = var.azs_value
-  public_subnets  = var.public_subnets_value
+  enable_nat_gateway = true
+  enable_vpn_gateway = true
 
-  enable_nat_gateway = false
-  enable_vpn_gateway = false
-
+  tags = {
+    Terraform    = "true"
+    Environment = "testing"
+  }
 }
 
 module "ec2" {
-  source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
-  region = var.region_value
-
-  instance_type = var.instance_type_value
-  ami           = var.ami_value
-  subnet_id     = module.vpc.public_subnets[0]
-
+  source             = "/home/infivit/nitro/Terraform_/Modules/Ec2"
+  region_value       = var.region_value
+  instance_type_value = var.instance_type_value
+  ami_value          = var.ami_value
+  subnet_id_value    = module.vpc.public_subnets[0]
 }
 
 module "ec2_instance2" {
-  source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
-  region = var.region_value
-
-  instance_type = var.instance_type_value
-  ami           = var.ami_value
-  subnet_id     = module.vpc.public_subnets[1]
-
+  source             = "/home/infivit/nitro/Terraform_/Modules/Ec2"
+  region_value       = var.region_value
+  instance_type_value = var.instance_type_value
+  ami_value          = var.ami_value
+  subnet_id_value    = module.vpc.public_subnets[1]
 }

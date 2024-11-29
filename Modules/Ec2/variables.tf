@@ -14,4 +14,9 @@ variable "instance_type_value" {
     type        = string
 }
 
+variable "subnet_id_value" {
+  description = "Subnet ID for the EC2 instance"
+  type        = string
+}
+
 

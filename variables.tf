@@ -39,3 +39,14 @@ variable "region_value" {
   
 }
 
+
+
+
+
+
+
+
+
+
+
+
