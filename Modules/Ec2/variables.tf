@@ -14,13 +14,12 @@ variable "instance_type_value" {
     type        = string
 }
 
-variable "subnet_id_value" {
-  description = "Subnet ID for the EC2 instance"
-  type        = string
-}
-
-
 variable "public_subnets_value" {
   description = "A list of public subnets inside the custom VPC"
   type        = list(string)
+}
+
+variable "subnet_id_value" {
+  type        = string
+  description = "The ID of the subnet where the EC2 instance will be deployed"
 }
