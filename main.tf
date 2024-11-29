@@ -15,20 +15,20 @@ module "vpc" {
 }
 
 module "ec2" {
-  source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
-
+  source              = "/home/infivit/nitro/Terraform_/Modules/Ec2"
   region_value        = var.region_value
   instance_type_value = var.instance_type_value
   ami_value           = var.ami_value
-  subnet_id_value     = var.public_subnets_value[0]  # Using the first public subnet from VPC module
+  public_subnets_value = module.vpc.public_subnets  # Use the output from the VPC module
 }
 
-module "ec2_instance2" {
-  source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
 
+module "ec2" {
+  source              = "/home/infivit/nitro/Terraform_/Modules/Ec2"
   region_value        = var.region_value
   instance_type_value = var.instance_type_value
   ami_value           = var.ami_value
-  subnet_id_value     = var.public_subnets_value[1]  # Using the second public subnet from VPC module
+  public_subnets_value = module.vpc.public_subnets  # Use the output from the VPC module
 }
+
 

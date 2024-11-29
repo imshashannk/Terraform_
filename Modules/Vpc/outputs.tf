@@ -15,3 +15,8 @@ output "subnet_az1_id" {
 output "subnet_az2_id" {
   value = aws_subnet.az2.id
 }
+
+output "public_subnets" {
+  value = [aws_subnet.az1.id, aws_subnet.az2.id]
+  description = "List of public subnet IDs"
+}
