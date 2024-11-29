@@ -12,6 +12,6 @@ resource "aws_instance" "my_ec2_1" {
 resource "aws_instance" "my_ec2_2" {
   ami                     = var.ami_value
   instance_type           = var.instance_type_value
-  subnet_id               = var.vpc.public_subnets[1]  # Reference the second public subnet
+  subnet_id               = var.vpc.public_subnets_value[1]  # Reference the second public subnet
   associate_public_ip_address = true
 }
