@@ -18,6 +18,7 @@ module "vpc" {
 
 module "ec2" {
   source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
+  region = var.ec2_region1_value
 
   instance_type = var.instance_type_value
   ami           = var.ami_value
@@ -32,14 +33,11 @@ module "ec2" {
 
 module "ec2_instance2" {
   source = "/home/infivit/nitro/Terraform_/Modules/Ec2"
+  region = var.ec2_region2_value
 
   instance_type = var.instance_type_value
   ami           = var.ami_value
   subnet_id     = module.vpc.public_subnets[1]
 
-  tags = {
-    Terraform   = "true"
-    Environment = "testing"
-    Instance    = "Instance-2"
-  }
+
 }
