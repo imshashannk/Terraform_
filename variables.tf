@@ -10,10 +10,6 @@ variable "azs_value" {
   type        = list(string)
 }
 
-variable "private_subnets_value" {
-  description = "A list of private subnets inside the custom VPC"
-  type        = list(string)
-}
 
 variable "public_subnets_value" {
   description = "A list of public subnets inside the custom VPC"
