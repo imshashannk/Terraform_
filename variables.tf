@@ -26,3 +26,13 @@ variable "ami_value" {
   description = "The AMI to use for the instance"
   
 }
+
+variable "ec2_region1_value" {
+  description = "The region to launch the instance in"
+  
+}
+
+variable "ec2_region2_value" {
+  description = "The region to launch the instance in"
+  
+}

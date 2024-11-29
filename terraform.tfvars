@@ -9,3 +9,7 @@ public_subnets_value = ["10.0.101.0/24", "10.0.102.0/24"]
 instance_type_value = "t2.micro"
 
 ami_value = "ami-0c55b159cbfafe1f0"
+
+ec2_region1_value = "ap-south-1"
+
+ec2_region2_value = "ap-south-1"
